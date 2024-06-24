@@ -161,11 +161,18 @@ module.exports = grammar({
         subscript: ($) =>
             prec.left(
                 "subscript",
-                seq(
-                    field("target", $._expression),
-                    "[",
-                    field("index", $._expression),
-                    "]",
+                choice(
+                    seq(
+                        field("target", $._expression),
+                        "[",
+                        field("index", $._expression),
+                        "]",
+                    ),
+                    seq(
+                        field("target", $._expression),
+                        ".",
+                        field("index", $.identifier),
+                    ),
                 ),
             ),
 
