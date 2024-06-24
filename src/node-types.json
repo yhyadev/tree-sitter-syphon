@@ -787,6 +787,24 @@
             "named": true
           }
         ]
+      },
+      "fallback": {
+        "multiple": true,
+        "required": false,
+        "types": [
+          {
+            "type": "body",
+            "named": true
+          },
+          {
+            "type": "else",
+            "named": false
+          },
+          {
+            "type": "if",
+            "named": true
+          }
+        ]
       }
     },
     "children": {
@@ -1660,6 +1678,10 @@
   {
     "type": "continue",
     "named": true
+  },
+  {
+    "type": "else",
+    "named": false
   },
   {
     "type": "false",

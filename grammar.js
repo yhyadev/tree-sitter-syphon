@@ -46,7 +46,13 @@ module.exports = grammar({
         _statement: ($) =>
             choice($.if, $.while, $.break, $.continue, $.return, $._expression),
 
-        if: ($) => seq("if", field("condition", $._expression), $.body),
+        if: ($) =>
+            seq(
+                "if",
+                field("condition", $._expression),
+                $.body,
+                field("fallback", optional(seq("else", choice($.if, $.body)))),
+            ),
 
         while: ($) => seq("while", field("condition", $._expression), $.body),
         break: (_) => "break",
