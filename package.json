@@ -46,7 +46,7 @@
   },
   "tree-sitter": [
     {
-      "scope": "source.sy",
+      "scope": "source.syphon",
       "file-types": [
         "sy"
       ],
