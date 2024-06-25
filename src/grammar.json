@@ -332,12 +332,8 @@
               "type": "SEQ",
               "members": [
                 {
-                  "type": "FIELD",
-                  "name": "parameter",
-                  "content": {
-                    "type": "SYMBOL",
-                    "name": "identifier"
-                  }
+                  "type": "SYMBOL",
+                  "name": "identifier"
                 },
                 {
                   "type": "REPEAT",
@@ -349,12 +345,8 @@
                         "value": ","
                       },
                       {
-                        "type": "FIELD",
-                        "name": "parameter",
-                        "content": {
-                          "type": "SYMBOL",
-                          "name": "identifier"
-                        }
+                        "type": "SYMBOL",
+                        "name": "identifier"
                       }
                     ]
                   }

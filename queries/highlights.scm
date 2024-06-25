@@ -13,8 +13,6 @@
 
 "return" @keyword.return
 
-(call (identifier) @function.call)
-
 [
   "+"
   "-"
@@ -50,13 +48,18 @@
  "}"
 ] @punctuation.bracket
 
+(parameters (identifier) @variable.parameter)
+
+(call (identifier) @function.call)
+
 (identifier) @variable
 
 (none) @constant.builtin
 
-((true) (false)) @boolean
+[(true) (false)] @boolean
 
-((int) (float)) @number
+(int) @number
+(float) @number.float
 
 (string) @string
 

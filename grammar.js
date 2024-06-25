@@ -99,7 +99,7 @@ module.exports = grammar({
         parameters: ($) =>
             seq(
                 "(",
-                optional(commaSeparated(field("parameter", $.identifier))),
+                optional(commaSeparated($.identifier)),
                 ")",
                 optional(","),
             ),
