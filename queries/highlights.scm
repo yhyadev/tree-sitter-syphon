@@ -54,7 +54,7 @@
 
 (identifier) @variable
 
-(none) @constant.builtin
+[(none) (true) (false)]  @constant.builtin
 
 [(true) (false)] @boolean
 
