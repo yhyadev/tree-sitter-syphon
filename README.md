@@ -31,7 +31,7 @@ source = { git = "https://github.com/yhyadev/tree-sitter-syphon", rev = "<PUT TH
 
 2 - Now, copy the queries from [queries/helix](queries/helix) to `runtime/queries/syphon` directory inside the root of local config
 
-3 - And lastly run this commands to fetch and build the parser
+3 - And lastly run these commands to fetch and build the parser
 
 ```
 hx -g fetch
