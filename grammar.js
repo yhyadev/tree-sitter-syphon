@@ -80,7 +80,7 @@ module.exports = grammar({
 
         identifier: (_) => token(/[_a-zA-Z][_a-zA-Z0-9]*/),
 
-        string: (_) => seq('"', field("content", /[^"\n]+/), '"'),
+        string: (_) => seq('"', field("content", /[^"\\]*(?:\\.[^"\\]*)*/), '"'),
 
         int: (_) => token(/[0-9]+/),
 
