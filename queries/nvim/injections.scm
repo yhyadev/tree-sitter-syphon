@@ -1,3 +1,3 @@
 ((comment) @injections.content
-  (#set! injections.language "comment"))
+ (#set! injections.language "comment"))
 

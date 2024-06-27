@@ -1,3 +1,40 @@
+; Variables
+
+(identifier) @variable
+
+(member key: (identifier) @variable.member)
+
+; Parameters
+
+(parameters (identifier) @variable.parameter)
+
+; Function and Method calls
+
+(call (identifier) @function)
+
+(call (member key: (identifier) @function.method))
+
+; Literals
+
+(none) @constant.builtin
+
+[(true) (false)] @boolean
+
+(int) @number
+(float) @number.float
+
+(string) @string
+
+; Comments
+
+(comment) @comment
+
+; Keywords
+
+"fn" @keyword.function
+
+"return" @keyword.return
+
 [
  "while"
  (break)
@@ -9,9 +46,7 @@
  "else"
 ] @keyword.conditional
 
-"fn" @keyword.function
-
-"return" @keyword.return
+; Operators
 
 [
   "+"
@@ -33,6 +68,8 @@
 ] @operator
 
 
+; Punctuation
+
 [
   ":"
   ","
@@ -47,20 +84,3 @@
  "{"
  "}"
 ] @punctuation.bracket
-
-(parameters (identifier) @variable.parameter)
-
-(call (identifier) @function.call)
-
-(identifier) @variable
-
-(none) @constant.builtin
-
-[(true) (false)] @boolean
-
-(int) @number
-(float) @number.float
-
-(string) @string
-
-(comment) @comment

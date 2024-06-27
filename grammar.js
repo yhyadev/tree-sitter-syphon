@@ -80,7 +80,8 @@ module.exports = grammar({
 
         identifier: (_) => token(/[_a-zA-Z][_a-zA-Z0-9]*/),
 
-        string: (_) => seq('"', field("content", /[^"\\]*(?:\\.[^"\\]*)*/), '"'),
+        string: (_) =>
+            seq('"', field("content", /[^"\\]*(?:\\.[^"\\]*)*/), '"'),
 
         int: (_) => token(/[0-9]+/),
 
@@ -133,7 +134,7 @@ module.exports = grammar({
             ),
 
         _binary_expression: ($) =>
-            choice($.call, $.assign, $.subscript, $.binary_operation),
+            choice($.call, $.assign, $.subscript, $.member, $.binary_operation),
 
         call: ($) => prec.left("call", seq($._expression, $.arguments)),
 
@@ -161,19 +162,19 @@ module.exports = grammar({
         subscript: ($) =>
             prec.left(
                 "subscript",
-                choice(
-                    seq(
-                        field("target", $._expression),
-                        "[",
-                        field("index", $._expression),
-                        "]",
-                    ),
-                    seq(
-                        field("target", $._expression),
-                        ".",
-                        field("index", $.identifier),
-                    ),
+                seq(
+                    field("target", $._expression),
+                    "[",
+                    field("index", $._expression),
+                    "]",
                 ),
+            ),
+
+        member: ($) =>
+            seq(
+                field("target", $._expression),
+                ".",
+                field("key", $.identifier),
             ),
 
         binary_operation: ($) =>
