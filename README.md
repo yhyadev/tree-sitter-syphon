@@ -12,7 +12,7 @@ Syphon grammar for [tree-sitter](https://github.com/tree-sitter/tree-sitter).
 
 ### Helix
 
-- Go to your config (~/.config/helix on Linux for example) and add this to your "languages.toml" file
+1 - Add this to your `languages.toml` file
 
 ```toml
 [[language]]
@@ -29,11 +29,39 @@ name = "syphon"
 source = { git = "https://github.com/yhyadev/tree-sitter-syphon", rev = "<PUT THE COMMIT REVISION HERE>" }
 ```
 
-- Now, copy the queries from [queries/helix](queries/helix) to your runtime/queries/syphon directory
+2 - Now, copy the queries from [queries/helix](queries/helix) to `runtime/queries/syphon` directory inside the root of local config
 
-- And lastly run this commands to fetch and build the parser
+3 - And lastly run this commands to fetch and build the parser
 
 ```
 hx -g fetch
 hx -g build
 ```
+
+### Neovim
+
+1 - Add this to your init.lua file if you use nvim-treesitter
+
+```lua
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+
+parser_config.syphon = {
+    install_info = {
+        url = "https://github.com/yhyadev/tree-sitter-syphon",
+        files = { "src/parser.c" },
+        rev = "<PUT THE COMMIT REVISION HERE>",
+    },
+
+    filetype = "sy"
+}
+
+vim.filetype.add({
+    extension = {
+        sy = "syphon"
+    }
+})
+```
+
+2 - Now, copy the queries from [queries/nvim](queries/nvim) to `queries/syphon` directory inside the root of local config
+
+3 - And lastly restart neovim and then run `:TSUpdate`
