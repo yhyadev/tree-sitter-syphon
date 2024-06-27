@@ -54,12 +54,12 @@
 
 (identifier) @variable
 
-[(none) (true) (false)]  @constant.builtin
+(none) @constant.builtin
 
-[(true) (false)] @boolean
+[(true) (false)] @constant.builtin.boolean
 
-(int) @numeric.integer
-(float) @numeric.float
+(int) @constant.numeric.integer
+(float) @constant.numeric.float
 
 (string) @string
 
