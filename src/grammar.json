@@ -233,7 +233,7 @@
       "type": "TOKEN",
       "content": {
         "type": "PATTERN",
-        "value": "[0-9][_a-zA-Z0-9]+"
+        "value": "[0-9][_a-zA-Z0-9]*"
       }
     },
     "float": {

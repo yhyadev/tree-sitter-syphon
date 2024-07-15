@@ -83,7 +83,7 @@ module.exports = grammar({
         string: (_) =>
             seq('"', field("content", /[^"\\]*(?:\\.[^"\\]*)*/), '"'),
 
-        int: (_) => token(/[0-9][_a-zA-Z0-9]+/),
+        int: (_) => token(/[0-9][_a-zA-Z0-9]*/),
 
         float: (_) => token(/[0-9]\.[0-9]*/),
 
