@@ -101,8 +101,8 @@ module.exports = grammar({
             seq(
                 "(",
                 optional(commaSeparated($.identifier)),
-                ")",
                 optional(","),
+                ")",
             ),
 
         body: ($) => seq("{", repeat($._statement), "}"),
@@ -171,10 +171,13 @@ module.exports = grammar({
             ),
 
         member: ($) =>
-            seq(
-                field("target", $._expression),
-                ".",
-                field("key", $.identifier),
+            prec.left(
+                "subscript",
+                seq(
+                    field("target", $._expression),
+                    ".",
+                    field("key", $.identifier),
+                ),
             ),
 
         binary_operation: ($) =>
@@ -182,7 +185,7 @@ module.exports = grammar({
                 ...[
                     ["+", "sum"],
                     ["-", "sum"],
-                    ["*", "sum"],
+                    ["*", "product"],
                     ["/", "product"],
                     ["%", "product"],
                     ["**", "exponent", "right"],

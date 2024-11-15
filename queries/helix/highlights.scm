@@ -1,7 +1,6 @@
 ; Function and Method calls
 
 (call (member key: (identifier) @function.method))
-
 (call (identifier) @function)
 
 ; Parameters
@@ -11,7 +10,6 @@
 ; Variables
 
 (member key: (identifier) @variable.other.member)
-
 (identifier) @variable
 
 ; Literals
@@ -35,17 +33,17 @@
 
 "return" @keyword.control.return
 
-[
- "while"
- (break)
- (continue)
-] @keyword.control.repeat
+"while" @keyword.control.repeat
 
 [
  "if"
  "else"
 ] @keyword.control.conditional
 
+[
+ (break)
+ (continue)
+] @keyword.control
 
 ; Operators
 
